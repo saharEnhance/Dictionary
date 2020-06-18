@@ -41,6 +41,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+
     //Recycler
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
@@ -77,6 +79,7 @@ dependencies {
 
     // Dagger
     implementation 'com.google.dagger:dagger-android:2.28'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0-rc01'
     kapt 'com.google.dagger:dagger-android-processor:2.28'
     kapt 'com.google.dagger:dagger-compiler:2.28'
     // ViewModel and LiveData
@@ -95,4 +98,14 @@ dependencies {
     //location
     implementation 'com.google.android.gms:play-services-location:17.0.0'
 
+    //espresso
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    androidTestImplementation 'androidx.test:rules:1.1.1'
+    androidTestImplementation 'androidx.test.ext:truth:1.1.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+
+    //mockito
+    testImplementation 'junit:junit:4.13'
+    testImplementation 'org.mockito:mockito-core:3.3.1'
+    testImplementation 'androidx.arch.core:core-testing:2.1.0'
 }

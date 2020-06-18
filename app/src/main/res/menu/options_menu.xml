@@ -1,47 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/degree"
-        android:title="Degree">
-        <menu>
-            <item
-                android:id="@+id/option_celcius"
-                android:orderInCategory="100"
-                android:title="C°"
-                app:showAsAction="never" />
-
-            <item
-                android:id="@+id/option_farenheit"
-                android:orderInCategory="100"
-                android:enabled="true"
-                android:title="F°"
-                app:showAsAction="never" />
-        </menu>
-    </item>
+        android:id="@+id/sort_thumbsUp"
+        android:orderInCategory="1"
+        app:showAsAction="never"
+        android:title="@string/thumbs_up"/>
     <item
-        android:id="@+id/search"
-        android:background="#FFFFFF"
-        android:icon="@drawable/ic_search_foreground"
-        android:title="search here..."
-        app:actionViewClass="android.widget.SearchView"
-        app:showAsAction="always" />
-    <!--<item
-        app:actionViewClass="android.widget.Switch"
-        android:id="@+id/mySwitch"
-        android:background="#00ACC1"
-        android:title="on"
-        app:showAsAction="never" />
-
-    <item
-        app:actionViewClass="android.widget.ToggleButton"
-        android:title="toggle"
-        android:textOn="Logging On"
-        android:textOff="Logging Off"
-        android:background="@drawable/shapes"
-        app:showAsAction="never" />-->
+        android:id="@+id/sort_thumbsDown"
+        android:orderInCategory="2"
+        app:showAsAction="never"
+        android:title="@string/thumbs_down"/>
 
 </menu>

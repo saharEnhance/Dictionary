@@ -1,28 +1,18 @@
 package com.example.dictionary.view
 
-import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.example.dictionary.model.Base
+import com.example.dictionary.model.List
+import kotlinx.android.synthetic.main.item.view.*
 
 
 class WordViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-    fun bind(hourly: Base, clickListener: (Base) -> Unit) {
-       // val sdf = SimpleDateFormat("MM/dd/yy hh.mm aa")
- /*       val sdf = SimpleDateFormat("hh.mm aa")
-        val netDate = Date(hourly.dt.toLong() * 1000)
-        val date = sdf.format(netDate)
-        Log.d("dateTag", date)
+    fun bind(list: List, clickListener: (List) -> Unit) {
 
-        itemView.timeView.text = date.toString()
-        itemView.degreeView.text = hourly.temp.toString()
-        itemView.percentView.text = hourly.wind_speed.toString()
-        var st = hourly.weather[0].icon
-
-        Picasso.get().load("https://openweathermap.org/img/wn/$st@2x.png")
-            .into(itemView.conditonView);*/
-
-        itemView.setOnClickListener { clickListener(hourly) }
+        itemView.defView.text = list.definition
+        itemView.thumbsDownView.text ="thumbs_down: " + list.thumbs_down.toString()
+        itemView.thumbsUPView.text ="thumbs_up: " + list.thumbs_up.toString()
+        itemView.setOnClickListener { clickListener(list) }
     }
 }
