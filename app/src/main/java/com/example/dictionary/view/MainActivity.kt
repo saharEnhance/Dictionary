@@ -45,13 +45,14 @@ class MainActivity : AppCompatActivity() {
         val bt: Button = findViewById(R.id.searchBtn)
         val tx = findViewById<EditText>(R.id.searchText)
 
-       // val progressBar = findViewById<ProgressBar>(R.id.progressBar) as ProgressBar
+        val progressBar = findViewById<ProgressBar>(R.id.progressBar) as ProgressBar
 
         viewModel.stateLiveData.observe(this, Observer { appState ->
 
             when (appState) {
-                is DictionaryViewModel.AppState.LOADING -> displayToast("loading!")
+                is DictionaryViewModel.AppState.LOADING ->progressNow()
                 is DictionaryViewModel.AppState.SUCCESSFUL -> {
+                    progressStop()
                     list = appState.termList
                     displayList()
                 }
@@ -115,7 +116,7 @@ class MainActivity : AppCompatActivity() {
         ).show()
     }
 
-/*    private fun progressNow() {
+    private fun progressNow() {
 
         progressBar.visibility = View.VISIBLE
     }
@@ -123,5 +124,5 @@ class MainActivity : AppCompatActivity() {
     private fun progressStop() {
 
         progressBar.visibility = View.GONE
-    }*/
+    }
 }

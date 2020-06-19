@@ -31,7 +31,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--
     <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
@@ -44,12 +43,12 @@
         android:layout_marginRight="32dp"
         android:layout_marginBottom="32dp"
         android:indeterminate="false"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
     </androidx.core.widget.ContentLoadingProgressBar>
--->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dictionaryRecycler"
