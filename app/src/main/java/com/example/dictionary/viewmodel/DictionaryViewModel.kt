@@ -19,7 +19,6 @@ class DictionaryViewModel @Inject constructor(private val dictionaryRepositoryIm
 
     fun getList(term:String) {
         stateMutableLiveData.value = AppState.LOADING
-        //load()
         disposable.add(
             dictionaryRepositoryImp.getTerm(term).subscribe({
                 loaded = true
@@ -38,12 +37,6 @@ class DictionaryViewModel @Inject constructor(private val dictionaryRepositoryIm
                 stateMutableLiveData.value = AppState.ERROR(errorString)
             })
         )
-    }
-    private fun load() {
-        // set correct visible element
-      /*  progressBarVisibilityMutableLiveData.value = View.VISIBLE
-        listVisibilityMutableLiveData.value = View.GONE
-        errorVisibilityMutableLiveData.value = View.GONE*/
     }
     override fun onCleared() {
         super.onCleared()

@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         val bt: Button = findViewById(R.id.searchBtn)
         val tx = findViewById<EditText>(R.id.searchText)
 
-        val progressBar = findViewById<ProgressBar>(R.id.progressBar) as ProgressBar
+       // val progressBar = findViewById<ProgressBar>(R.id.progressBar) as ProgressBar
 
         viewModel.stateLiveData.observe(this, Observer { appState ->
 
@@ -67,7 +67,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun displayList() {
 
-        println("===" + list.toString())
         adapter?.updateDictionary(false)
         initRecyclerView(list)
     }

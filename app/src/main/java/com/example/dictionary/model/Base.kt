@@ -59,10 +59,4 @@ class Converters {
         val gson = Gson()
         return gson.toJson(list)
     }
-/*    @TypeConverter
-    fun flistToJson(value: sound_urls?) = Gson().toJson(value)
-
-    @TypeConverter
-    fun fjsonToList(value: String) = Gson().fromJson(value, sound_urls::class.java)*/
-
 }

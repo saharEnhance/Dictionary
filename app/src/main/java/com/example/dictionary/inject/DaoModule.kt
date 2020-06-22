@@ -1,5 +1,6 @@
 package com.example.dictionary.inject
 
+import android.content.Context
 import androidx.room.Room
 import com.example.dictionary.model.DictionaryDAO
 import com.example.dictionary.model.DictionaryRoomDB
@@ -8,7 +9,7 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class DaoModule(application: DictionaryApplication) {
+class DaoModule(application: DictionaryApplication,context: Context) {
 
     private val database:DictionaryRoomDB = Room.databaseBuilder(application,
         DictionaryRoomDB::class.java, "dictionary_db").build()
