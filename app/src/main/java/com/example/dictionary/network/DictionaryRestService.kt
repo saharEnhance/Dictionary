@@ -58,6 +58,5 @@ interface DictionaryRestService {
         }
     }
     @GET("/define")
-    //  @Headers(value = ["x-rapidapi-key:bb13610f65msh7ef236003435eccp18fbb3jsn6c51f468afe2","x-rapidapi-host:mashape-community-urban-dictionary.p.rapidapi.com"])
     fun getTerm(@Query("term") term: String): Single<Base>
 }

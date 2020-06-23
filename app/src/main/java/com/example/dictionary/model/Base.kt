@@ -14,7 +14,6 @@ import java.lang.reflect.Type
 @Entity(tableName = "dictionary")
 @TypeConverters
 data class Base(
-
     @PrimaryKey(autoGenerate = true)
     val id:Int,
     val list: ArrayList<List>

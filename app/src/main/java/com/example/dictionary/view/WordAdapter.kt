@@ -9,7 +9,6 @@ import com.example.dictionary.model.List
 
 class WordAdapter(private var list : ArrayList<List>, private val clickListener: (List) -> Unit):RecyclerView.Adapter<WordViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
-
             val inflater = LayoutInflater.from(parent.context)
             val view = inflater.inflate(R.layout.item, parent, false)
             return WordViewHolder(view)
@@ -19,7 +18,6 @@ class WordAdapter(private var list : ArrayList<List>, private val clickListener:
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
         holder.bind(list[position], clickListener)
     }
-
     fun updateDictionary(upOrDown: Boolean){
         if(upOrDown) {
             list.sortBy { it.thumbs_down }

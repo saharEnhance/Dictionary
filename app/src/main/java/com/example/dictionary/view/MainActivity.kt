@@ -6,7 +6,6 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -45,12 +44,10 @@ class MainActivity : AppCompatActivity() {
         val bt: Button = findViewById(R.id.searchBtn)
         val tx = findViewById<EditText>(R.id.searchText)
 
-       // val progressBar = findViewById<ProgressBar>(R.id.progressBar) as ProgressBar
-
         viewModel.stateLiveData.observe(this, Observer { appState ->
 
             when (appState) {
-                is DictionaryViewModel.AppState.LOADING ->progressNow()
+                is DictionaryViewModel.AppState.LOADING -> progressNow()
                 is DictionaryViewModel.AppState.SUCCESSFUL -> {
                     progressStop()
                     list = appState.termList
@@ -66,7 +63,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun displayList() {
-
         adapter?.updateDictionary(false)
         initRecyclerView(list)
     }
@@ -92,7 +88,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         when (item.itemId) {
             R.id.sort_thumbsUp -> {
                 adapter?.updateDictionary(false)
@@ -116,12 +111,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun progressNow() {
-
         progressBar.visibility = View.VISIBLE
     }
 
     private fun progressStop() {
-
         progressBar.visibility = View.GONE
     }
 }

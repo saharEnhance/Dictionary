@@ -8,7 +8,6 @@ import dagger.Provides
 
 @Module
 class RepositoryModule {
-
     @Provides
     fun provideRepositoryModule(dictionaryRestService: DictionaryRestService, database: DictionaryRoomDB):DictionaryRepositoryImp{
         return DictionaryRepositoryImp(dictionaryRestService,database)

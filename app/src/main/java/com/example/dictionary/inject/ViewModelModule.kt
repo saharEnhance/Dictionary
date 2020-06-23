@@ -7,7 +7,6 @@ import dagger.Provides
 
 @Module
 class ViewModelModule() {
-
     @Provides
     fun providesFactory(dictionaryRepositoryImp: DictionaryRepositoryImp):DictionaryViewModelFactory{
         return DictionaryViewModelFactory((dictionaryRepositoryImp))
