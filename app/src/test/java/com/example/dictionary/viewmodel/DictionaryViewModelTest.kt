@@ -1,57 +1,50 @@
 package com.example.dictionary.viewmodel
 
-import com.example.dictionary.mockito.mock
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.example.dictionary.model.Base
 import com.example.dictionary.model.DictionaryRepository
-import com.example.dictionary.model.DictionaryRepositoryImp
+import com.example.dictionary.util.ModelHelper.createBase
+import io.reactivex.Single
 import org.junit.*
 
 import org.junit.Assert.*
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
+import org.mockito.InjectMocks
+import org.mockito.Mock
+import org.mockito.Mockito
+import org.mockito.Mockito.only
+import org.mockito.MockitoAnnotations
 
 @RunWith(JUnit4::class)
 class DictionaryViewModelTest {
 
-    val repository = mock<DictionaryRepository>()
+    @get:Rule
+    val instantExecutorRule = InstantTaskExecutorRule()
 
-//    val viewmodel by lazy{DictionaryViewModel(repository)}
+    @Mock
+    lateinit var repository: DictionaryRepository
 
-    var times = 0
-    var timesAfter =0
+    @InjectMocks
+    lateinit var dictionaryViewModel:DictionaryViewModel
 
     @Before
     fun setUp() {
-        times++
-        println("Before $timesAfter")
-
+        MockitoAnnotations.initMocks(this)
     }
 
     @Test
     fun getList() {
-        assertEquals(1, times)
+        Mockito.`when`(repository.getTerm("term")).thenReturn(getMockBase())
+        dictionaryViewModel.getList("term")
+        dictionaryViewModel.stateLiveData.observeForever {  }
+        assertEquals(DictionaryViewModel.AppState.SUCCESSFUL(createBase(1).list), dictionaryViewModel.stateLiveData.value)
+        Mockito.verify(repository, only()).getTerm("term")
+
     }
 
-    @Test
-    fun getListZAfter() {
-        assertEquals(2, times)
+    private fun getMockBase(): Single<Base> {
+        return Single.just(createBase(1))
     }
 
-    @After
-    fun tearDown() {
-        timesAfter++
-        println("After $timesAfter")
-    }
-
-
-    companion object {
-        @AfterClass
-        fun afterClass() {
-            println("After class")
-        }
-
-        @BeforeClass
-        fun initial() {
-            println("BeforeClass")
-        }
-    }
 }

@@ -4,13 +4,14 @@ import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.dictionary.model.DictionaryRepository
 import com.example.dictionary.model.DictionaryRepositoryImp
 import com.example.dictionary.model.List
 import io.reactivex.disposables.CompositeDisposable
 import java.net.UnknownHostException
 import javax.inject.Inject
 
-class DictionaryViewModel @Inject constructor(private val dictionaryRepositoryImp: DictionaryRepositoryImp) : ViewModel() {
+class DictionaryViewModel @Inject constructor(private val dictionaryRepositoryImp: DictionaryRepository) : ViewModel() {
 
     private val disposable = CompositeDisposable()
     private val stateMutableLiveData = MutableLiveData<AppState>()
