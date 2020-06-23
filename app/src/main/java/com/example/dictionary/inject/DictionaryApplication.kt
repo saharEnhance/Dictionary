@@ -13,7 +13,6 @@ class DictionaryApplication:Application() {
             .viewModelModule(ViewModelModule())
             .restModule(RestModule())
             .repositoryModule(RepositoryModule())
-            .daoModule(DaoModule(this, applicationContext ))
             .build()
     }
 }
