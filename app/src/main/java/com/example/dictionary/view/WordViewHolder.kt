@@ -15,7 +15,6 @@ class WordViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         itemView.thumbsDownView.text =
             view.context.getString(R.string.thumbs_downn, list.thumbs_down.toString())
 
-
         itemView.thumbsUPView.text =
             view.context.getString(R.string.thumbs_upp, list.thumbs_up.toString())
 
