@@ -1,11 +1,11 @@
 package com.example.dictionary.util
 
 import com.example.dictionary.model.Base
-import com.example.dictionary.model.List
+import com.example.dictionary.model.DictionaryList
 
 object ModelHelper {
 
-    private fun createListItem() = List(
+    private fun createListItem() = DictionaryList(
         "definition",
         "permalink",
         10,
@@ -20,7 +20,7 @@ object ModelHelper {
     )
 
     fun createBase(count: Int): Base {
-        var terms = arrayListOf<List>()
+        var terms = arrayListOf<DictionaryList>()
         for(i in 0 until count) {
             terms.add(createListItem())
         }
