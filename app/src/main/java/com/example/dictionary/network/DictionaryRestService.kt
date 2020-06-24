@@ -15,13 +15,10 @@ import java.io.IOException
 import java.util.concurrent.TimeUnit
 
 interface DictionaryRestService {
-
     companion object {
         val instance: DictionaryRestService by lazy {
-            //Logging
             val loggingInterceptor = HttpLoggingInterceptor()
             loggingInterceptor.level = HttpLoggingInterceptor.Level.HEADERS
-            //OkHttp
             val okHttpClient = OkHttpClient.Builder()
                 .readTimeout(10000, TimeUnit.MILLISECONDS)
                 .writeTimeout(1000, TimeUnit.MILLISECONDS)
@@ -47,7 +44,6 @@ interface DictionaryRestService {
                     }
                 })
                 .build()
-            //Retrofit
             val retrofit = Retrofit.Builder()
                 .baseUrl("https://mashape-community-urban-dictionary.p.rapidapi.com")
                 .client(okHttpClient)

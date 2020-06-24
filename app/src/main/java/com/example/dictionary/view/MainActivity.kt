@@ -13,12 +13,11 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dictionary.R
 import com.example.dictionary.inject.DictionaryApplication
-import com.example.dictionary.model.List
+import com.example.dictionary.model.DictionaryList
 import com.example.dictionary.viewmodel.DictionaryViewModel
 import com.example.dictionary.viewmodel.DictionaryViewModelFactory
 import kotlinx.android.synthetic.main.content_main.*
 import javax.inject.Inject
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var viewModel: DictionaryViewModel
 
     var adapter: WordAdapter? = null
-    lateinit var list: ArrayList<List>
+    lateinit var list: ArrayList<DictionaryList>
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -39,7 +38,6 @@ class MainActivity : AppCompatActivity() {
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar!!.title = " "
 
         val bt: Button = findViewById(R.id.searchBtn)
         val tx = findViewById<EditText>(R.id.searchText)
@@ -67,18 +65,18 @@ class MainActivity : AppCompatActivity() {
         initRecyclerView(list)
     }
 
-    private fun initRecyclerView(word: ArrayList<List>) {
+    private fun initRecyclerView(word: ArrayList<DictionaryList>) {
 
         dictionaryRecycler.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-        adapter = WordAdapter(word) { word: List ->
+        adapter = WordAdapter(word) { word: DictionaryList ->
             onHourlySelected(word)
         }
         dictionaryRecycler.adapter = adapter
     }
 
-    private fun onHourlySelected(word: List) {
+    private fun onHourlySelected(word: DictionaryList) {
         Toast.makeText(this, "Clicked: $word", Toast.LENGTH_LONG).show()
     }
 

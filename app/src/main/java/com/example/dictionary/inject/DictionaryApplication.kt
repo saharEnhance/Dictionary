@@ -9,7 +9,6 @@ class DictionaryApplication:Application() {
     }
     private fun initializeComponent():AppComponent {
         return DaggerAppComponent.builder()
-            .applicationModule(ApplicationModule(this))
             .viewModelModule(ViewModelModule())
             .restModule(RestModule())
             .repositoryModule(RepositoryModule())

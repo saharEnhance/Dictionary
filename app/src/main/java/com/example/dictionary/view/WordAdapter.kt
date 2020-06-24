@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dictionary.R
-import com.example.dictionary.model.List
+import com.example.dictionary.model.DictionaryList
 
 
-class WordAdapter(private var list : ArrayList<List>, private val clickListener: (List) -> Unit):RecyclerView.Adapter<WordViewHolder>() {
+class WordAdapter(private var list : ArrayList<DictionaryList>, private val clickListener: (DictionaryList) -> Unit):RecyclerView.Adapter<WordViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
             val inflater = LayoutInflater.from(parent.context)
             val view = inflater.inflate(R.layout.item, parent, false)

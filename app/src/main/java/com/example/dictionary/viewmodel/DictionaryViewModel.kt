@@ -1,12 +1,10 @@
 package com.example.dictionary.viewmodel
 
-import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.dictionary.model.DictionaryList
 import com.example.dictionary.model.DictionaryRepository
-import com.example.dictionary.model.DictionaryRepositoryImp
-import com.example.dictionary.model.List
 import io.reactivex.disposables.CompositeDisposable
 import java.net.UnknownHostException
 import javax.inject.Inject
@@ -30,7 +28,6 @@ class DictionaryViewModel @Inject constructor(private val dictionaryRepositoryIm
                 }
             }, {
                 loaded = true
-                //errors
                 val errorString = when (it) {
                     is UnknownHostException -> it.localizedMessage
                     else -> it.localizedMessage
@@ -45,7 +42,7 @@ class DictionaryViewModel @Inject constructor(private val dictionaryRepositoryIm
     }
     sealed class AppState {
         object LOADING : AppState()
-        data class SUCCESSFUL(val termList: ArrayList<List>) : AppState()
+        data class SUCCESSFUL(val termList: ArrayList<DictionaryList>) : AppState()
         data class ERROR(val message: String) : AppState()
     }
 }

@@ -1,24 +1,18 @@
 package com.example.dictionary.model
 
 import android.os.Parcelable
-import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverter
-import androidx.room.TypeConverters
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import kotlinx.android.parcel.Parcelize
-import java.lang.reflect.Type
 
 @Parcelize
 data class Base(
     @PrimaryKey(autoGenerate = true)
-    val id:Int,
-    val list: ArrayList<List>
+    val id: Int,
+    val list: ArrayList<DictionaryList>
 ) : Parcelable
 
 @Parcelize
-data class List(
+data class DictionaryList(
 
     val definition: String,
     val permalink: String,

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Urban Dictionary</string>
     <string name="option_term_message">term</string>
-    <string name="thumbs_down">thumbs down</string>
-    <string name="thumbs_up">thumbs up</string>
+    <string name="thumbs_down">thumbs down </string>
+    <string name="thumbs_up">thumbs up </string>
+    <string name="thumbs_downn">thumbs down: %s</string>
+    <string name="thumbs_upp">thumbs up: %s</string>
 </resources>
